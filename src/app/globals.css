@@ -1,1 +1,25 @@
 @import "tailwindcss";
+
+@theme inline {
+    --font-inter: var(--font-inter);
+    --font-poppins: var(--font-poppins);
+    --font-roboto: var(--font-roboto);
+}
+
+
+
+html {
+    font-family: var(--font-poppins), sans-serif;
+}
+
+.font-inter {
+    font-family: var(--font-inter), sans-serif !important;
+}
+
+.font-poppins {
+    font-family: var(--font-poppins), sans-serif !important;
+}
+
+.font-roboto {
+    font-family: var(--font-roboto), sans-serif !important;
+}

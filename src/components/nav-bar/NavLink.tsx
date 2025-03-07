@@ -1,4 +1,3 @@
-// src/components/NavBar/NavLink.tsx
 import Link from 'next/link';
 
 interface NavLinkProps {
@@ -11,7 +10,7 @@ export const NavLink: React.FC<NavLinkProps> = ({ href, isActive, children }) =>
     return (
         <Link
             href={href}
-            className={`font-roboto text-base px-4 py-2 ${
+            className={`font-roboto text-base  ${
                 isActive
                     ? 'font-semibold text-black'
                     : 'text-gray-700 hover:text-black'

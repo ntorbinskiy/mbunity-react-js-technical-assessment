@@ -1,4 +1,5 @@
 import {NavBar} from "@/components/nav-bar/NavBar";
+import React from "react";
 
 
 export const metadata = {

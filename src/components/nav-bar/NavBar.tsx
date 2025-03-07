@@ -3,23 +3,22 @@ import { NavLink } from './NavLink';
 import { UserIcon } from './UserIcon';
 import { CartIcon } from './CartIcon';
 import { MobileMenuButton } from './MobileMenuButton';
+import React from "react";
 
 interface NavBarProps {
     currentPath: string;
 }
 
-export const NavBar: React.FC<NavBarProps> = ({ currentPath }) => {
-    return (
+export const NavBar: React.FC<NavBarProps> = ({ currentPath }) =>
+    (
         <header className="sticky top-0 z-10 bg-white shadow-sm">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="flex justify-between items-center h-16">
-                    {/* Logo */}
                     <div className="flex-shrink-0 font-inter font-extrabold text-xl">
                         <Link href="#">Logo Here</Link>
                     </div>
 
-                    {/* Desktop Navigation */}
-                    <nav className="hidden md:flex items-center space-x-1">
+                    <nav className="hidden md:flex items-center gap-12">
                         <NavLink href="#" isActive={currentPath === '/'}>Home</NavLink>
                         <NavLink href="#" isActive={currentPath === '/features'}>
               <span className="flex items-center">
@@ -31,7 +30,7 @@ export const NavBar: React.FC<NavBarProps> = ({ currentPath }) => {
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
                 >
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7"/>
                 </svg>
               </span>
                         </NavLink>
@@ -41,18 +40,15 @@ export const NavBar: React.FC<NavBarProps> = ({ currentPath }) => {
                         <NavLink href="#" isActive={currentPath === '/contact'}>Contact</NavLink>
                     </nav>
 
-                    {/* User and Cart */}
                     <div className="hidden md:flex items-center space-x-4">
-                        <UserIcon />
-                        <CartIcon />
+                        <UserIcon/>
+                        <CartIcon/>
                     </div>
 
-                    {/* Mobile menu button */}
                     <div className="md:hidden">
-                        <MobileMenuButton />
+                        <MobileMenuButton/>
                     </div>
                 </div>
             </div>
         </header>
     );
-};
