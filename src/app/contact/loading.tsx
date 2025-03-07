@@ -1,4 +1,4 @@
-import React, {JSX} from 'react';
+import React, { JSX } from 'react';
 
 export default function Loading(): JSX.Element {
     return (
@@ -8,9 +8,7 @@ export default function Loading(): JSX.Element {
                 <div className="absolute top-0 left-0 w-full h-full border-4 border-t-blue-500 rounded-full animate-spin"></div>
             </div>
 
-            <p className="mt-4 text-base text-gray-600 font-medium">
-                Loading...
-            </p>
+            <p className="mt-4 text-base text-gray-600 font-medium">Loading...</p>
         </div>
     );
 }

@@ -20,4 +20,3 @@ export const roboto = Roboto({
     weight: ['400', '500'],
     variable: '--font-roboto',
 });
-
