@@ -11,9 +11,7 @@ export const NavLink: React.FC<NavLinkProps> = ({ href, isActive, children }) =>
         <Link
             href={href}
             className={`font-roboto text-base  ${
-                isActive
-                    ? 'font-semibold text-black'
-                    : 'text-gray-700 hover:text-black'
+                isActive ? 'font-semibold text-black' : 'text-gray-700 hover:text-black'
             }`}
         >
             {children}
