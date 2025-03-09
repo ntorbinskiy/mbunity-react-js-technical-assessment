@@ -1,10 +1,10 @@
 import React from "react";
-import { ContactInfo } from "@/components/contact-info/ContactInfo";
+import { ContactInfo } from "@/components/contact-page/contact-info/ContactInfo";
+import { ContactForm } from "@/components/contact-page/contact-form/ContactForm";
 
 export const metadata = {
     title: "Contact Us | Your Company",
-    description:
-        "Get in touch with our team for any questions or inquiries.",
+    description: "Get in touch with our team for any questions or inquiries.",
 };
 
 const ContactPage: React.FC = () => (
@@ -16,15 +16,13 @@ const ContactPage: React.FC = () => (
                         Contact Us
                     </h1>
                     <p className="text-gray-600 text-lg font-poppins">
-                        Any question or remarks?
-                        Just write us a message!
+                        Any question or remarks? Just write us a message!
                     </p>
                 </div>
 
                 <div className="flex flex-col lg:flex-row p-3 w-full bg-white rounded-lg shadow-lg overflow-hidden min-h-170">
                     <ContactInfo />
-                    {/*<ContactForm />*/}
-                    <div></div>
+                    <ContactForm />
                 </div>
             </div>
         </main>
