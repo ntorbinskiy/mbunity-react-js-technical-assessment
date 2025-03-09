@@ -1,5 +1,6 @@
 import React from "react";
 import { ContactInfo } from "@/components/contact-page/contact-info/ContactInfo";
+import { ContactForm } from "@/components/contact-page/contact-form/ContactForm";
 
 export const metadata = {
     title: "Contact Us | Your Company",
@@ -21,8 +22,7 @@ const ContactPage: React.FC = () => (
 
                 <div className="flex flex-col lg:flex-row p-3 w-full bg-white rounded-lg shadow-lg overflow-hidden min-h-170">
                     <ContactInfo />
-                    {/*<ContactForm />*/}
-                    <div></div>
+                    <ContactForm />
                 </div>
             </div>
         </main>

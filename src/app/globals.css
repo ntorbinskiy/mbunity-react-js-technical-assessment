@@ -4,8 +4,8 @@
     --font-inter: var(--font-inter);
     --font-poppins: var(--font-poppins);
     --font-roboto: var(--font-roboto);
+    --color-gray-contact-form: rgb(141, 141, 141);
 }
-
 
 
 html {
