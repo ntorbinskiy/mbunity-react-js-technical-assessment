@@ -23,7 +23,9 @@ export const PhoneInput: React.FC<PhoneInputProps> = ({
 }) => {
     const [internalError, setInternalError] = useState<string>("");
 
-    const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleInputChange = (
+        e: React.ChangeEvent<HTMLInputElement>,
+    ): void => {
         const formattedValue = formatPhoneNumber(e.target.value);
         const syntheticEvent = {
             ...e,

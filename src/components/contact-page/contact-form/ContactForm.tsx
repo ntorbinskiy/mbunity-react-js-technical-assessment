@@ -68,7 +68,7 @@ export const ContactForm: React.FC = () => {
         field: keyof ContactFormState,
         value: string,
     ): void => {
-        let updatedErrors = { ...formErrors };
+        const updatedErrors = { ...formErrors };
 
         switch (field) {
             case "firstName":
@@ -116,7 +116,6 @@ export const ContactForm: React.FC = () => {
         const isPhoneValidLength = formData.phone.trim().length >= 15;
         const isPhoneNotEmpty = formData.phone.trim() !== "";
         const isPhoneValid = isPhoneNotEmpty && isPhoneValidLength;
-        const isMessageValid = true;
 
         setFormErrors({
             ...formErrors,
@@ -135,7 +134,7 @@ export const ContactForm: React.FC = () => {
         });
 
         if (isFirstNameValid && isLastNameValid && isPhoneValid) {
-            console.log("Form submitted:", formData);
+            console.warn("Form submitted:", formData);
 
             setFormData({
                 firstName: "",

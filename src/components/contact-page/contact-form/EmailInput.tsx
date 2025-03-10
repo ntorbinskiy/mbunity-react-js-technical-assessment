@@ -37,7 +37,7 @@ export const EmailInput: React.FC<EmailInputProps> = ({
         } else {
             setError(null);
         }
-    }, [email, touched, required]);
+    }, [email, touched, required, setError]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         onChange(e);
