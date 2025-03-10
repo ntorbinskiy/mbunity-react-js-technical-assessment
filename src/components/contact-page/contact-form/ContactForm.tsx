@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState, FormEvent } from "react";
+import React, { useState, FormEvent, useCallback } from "react";
 import { NameFields } from "./NameFields";
 import { FormButton } from "./FormButton";
 import { EmailInput } from "./EmailInput";
@@ -185,12 +185,12 @@ export const ContactForm: React.FC = () => {
                             onChange={handleInputChange("email")}
                             required
                             error={formErrors.emailError}
-                            setError={(error: EmailError) =>
-                                setFormErrors({
-                                    ...formErrors,
+                            setError={useCallback((error: EmailError) => {
+                                setFormErrors((prev) => ({
+                                    ...prev,
                                     emailError: error,
-                                })
-                            }
+                                }));
+                            }, [])}
                         />
                         <PhoneInput
                             phone={formData.phone}

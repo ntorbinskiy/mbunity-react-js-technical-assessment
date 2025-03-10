@@ -7,15 +7,17 @@ interface SocialIconProps {
     ariaLabel: string;
 }
 
-export const SocialIcon: React.FC<
-    SocialIconProps
-> = ({ href, icon, ariaLabel }) => (
+export const SocialIcon: React.FC<SocialIconProps> = ({
+    href,
+    icon,
+    ariaLabel,
+}) => (
     <Link
         href={href}
         target="_blank"
         rel="noopener noreferrer"
         aria-label={ariaLabel}
-        className="w-8 h-8 rounded-full bg-[#1B1B1B] flex items-center justify-center text-white hover:bg-white hover:text-black transition-colors duration-300"
+        className="w-8 h-8 rounded-full bg-[#1B1B1B] flex items-center justify-center text-white hover:bg-white hover:text-black focus:bg-white focus:text-black transition-colors duration-300"
     >
         {icon}
     </Link>

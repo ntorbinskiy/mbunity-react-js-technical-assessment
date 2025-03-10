@@ -9,18 +9,19 @@ export const metadata = {
 
 const ContactPage: React.FC = () => (
     <>
-        <main className="flex flex-col items-center py-16 px-4 md:px-8">
+        <main className="flex flex-col items-center py-16  md:px-8">
             <div className="w-full max-w-6xl">
                 <div className="text-center mb-12">
-                    <h1 className="text-4xl md:text-5xl font-bold font-poppins mb-4">
+                    <h1 className="text-2xl md:text-5xl font-bold font-poppins mb-4">
                         Contact Us
                     </h1>
-                    <p className="text-gray-600 text-lg font-poppins">
-                        Any question or remarks? Just write us a message!
+                    <p className="text-gray-600 text-sm md:text-lg font-poppins">
+                        Any question or remarks? <br />
+                        Just write us a message!
                     </p>
                 </div>
 
-                <div className="flex flex-col lg:flex-row p-3 w-full bg-white rounded-lg shadow-lg overflow-hidden min-h-170">
+                <div className="flex flex-col lg:flex-row md:p-3 w-full bg-white rounded-lg shadow-lg overflow-hidden min-h-170">
                     <ContactInfo />
                     <ContactForm />
                 </div>

@@ -1,8 +1,4 @@
-import {
-    Inter,
-    Poppins,
-    Roboto,
-} from "next/font/google";
+import { Inter, Poppins, Roboto } from "next/font/google";
 
 export const inter = Inter({
     subsets: ["latin"],

@@ -26,18 +26,20 @@ export const EmailInput: React.FC<EmailInputProps> = ({
     };
 
     useEffect(() => {
+        let newError: EmailError = null;
+
         if (touched && email) {
             if (!validateEmail(email)) {
-                setError(ErrorMessages.EMAIL_INVALID);
-            } else {
-                setError(null);
+                newError = ErrorMessages.EMAIL_INVALID;
             }
         } else if (touched && required && !email) {
-            setError(ErrorMessages.EMAIL_REQUIRED);
-        } else {
-            setError(null);
+            newError = ErrorMessages.EMAIL_REQUIRED;
         }
-    }, [email, touched, required, setError]);
+
+        if (error !== newError) {
+            setError(newError);
+        }
+    }, [email, touched, required, setError, error]);
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
         onChange(e);
