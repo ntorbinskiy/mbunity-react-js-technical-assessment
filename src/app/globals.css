@@ -23,3 +23,111 @@ html {
 .font-roboto {
     font-family: var(--font-roboto), sans-serif !important;
 }
+
+/* Hamburger Menu Styles */
+.hamburger-lines {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 24px;
+    width: 24px;
+    position: relative;
+    align-items: flex-end;
+}
+
+/* Header background transition */
+header {
+    transition: background-color 0.3s ease-in-out;
+}
+
+header:has(.hamburger-lines.active) {
+    background-color: black !important;
+}
+
+/* Logo color transition when menu is active */
+header:has(.hamburger-lines.active) .logo {
+    color: white !important;
+    transition: color 0.3s ease-in-out;
+}
+
+.logo {
+    transition: color 0.3s ease-in-out;
+}
+
+/* Mobile Menu Animation */
+#mobile-menu {
+    transform-origin: top;
+    transform: scaleY(0);
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+    transition: 
+        transform 0.3s ease-in-out,
+        opacity 0.3s ease-in-out,
+        visibility 0s linear 0.3s;
+}
+
+#mobile-menu.active {
+    transform: scaleY(1);
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+    transition: 
+        transform 0.3s ease-in-out,
+        opacity 0.3s ease-in-out,
+        visibility 0s linear 0s;
+}
+
+/* Mobile Menu Content Animation */
+#mobile-menu > div {
+    opacity: 0;
+    transition: opacity 0.2s ease-in-out;
+}
+
+#mobile-menu.active > div {
+    opacity: 1;
+}
+
+.line {
+    display: block;
+    height: 2.7px;
+    border-radius: 4px 0 0 4px;
+    background: black;
+    transition:
+        transform 0.3s ease-in-out,
+        opacity 0.3s ease-in-out,
+        background-color 0.3s ease-in-out,
+        width 0.3s ease-in-out;
+}
+
+.line1 {
+    width: 24px;
+    transform: rotate(0) translate(0, 0);
+}
+
+.line2 {
+    width: 24px;
+    transform: translateX(0);
+}
+
+.line3 {
+    width: 12px;
+    transform: rotate(0) translate(0, 0);
+}
+
+.active .line1 {
+    transform: rotate(45deg) translate(5px, 5px);
+    width: 24px;
+    background: white;
+}
+
+.active .line2 {
+    opacity: 0;
+    transform: translateX(-10px);
+}
+
+.active .line3 {
+    transform: rotate(-45deg) translate(6px, -6px);
+    width: 24px;
+    background: white;
+}

@@ -39,7 +39,7 @@ export const ContactInfo: React.FC = () => (
             />
         </div>
 
-        <div className="flex gap-x-4 relative z-10">
+        <div className="flex gap-x-4 relative">
             <SocialIcon
                 href="https://twitter.com"
                 icon={<TwitterIcon />}
