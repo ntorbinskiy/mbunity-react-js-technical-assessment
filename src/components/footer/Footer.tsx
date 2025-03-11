@@ -2,7 +2,7 @@ import React from "react";
 import { ContactMethodsList } from "../contact-page/contact-info/ContactMethodsList";
 import { FooterLink } from "./FooterLink";
 import { FooterColumn } from "./FooterColumn";
-
+import { NewsletterSubscription } from "./NewsletterSubscription";
 export const Footer: React.FC = () => {
     return (
         <footer className="bg-black text-white pt-20 pb-16">
@@ -14,12 +14,12 @@ export const Footer: React.FC = () => {
                     <hr className="border-white my-11" />
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 pt-6">
+                <div className="grid  grid-cols-2 lg:grid-cols-[1fr_1fr_1fr_1fr_1fr] gap-8 pt-6">
                     <FooterColumn title="Reach us">
-                        <ContactMethodsList />
+                        <ContactMethodsList className="items-start!" />
                     </FooterColumn>
 
-                    <FooterColumn title="Company">
+                    <FooterColumn title="Company" className="justify-self-end">
                         <ul className="space-y-4">
                             <li>
                                 <FooterLink href="#">About</FooterLink>
@@ -52,7 +52,10 @@ export const Footer: React.FC = () => {
                         </ul>
                     </FooterColumn>
 
-                    <FooterColumn title="Quick Links">
+                    <FooterColumn
+                        title="Quick Links"
+                        className="justify-self-end"
+                    >
                         <ul className="space-y-4">
                             <li>
                                 <FooterLink href="#">
@@ -67,6 +70,7 @@ export const Footer: React.FC = () => {
                             </li>
                         </ul>
                     </FooterColumn>
+                    <NewsletterSubscription />
                 </div>
             </div>
         </footer>

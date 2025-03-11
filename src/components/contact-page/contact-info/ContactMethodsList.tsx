@@ -9,7 +9,13 @@ interface ContactMethodRecord {
     };
 }
 
-export const ContactMethodsList: React.FC = () => {
+interface ContactMethodsListProps {
+    className?: string;
+}
+
+export const ContactMethodsList: React.FC<ContactMethodsListProps> = ({
+    className,
+}) => {
     const contactMethods: ContactMethodRecord = {
         phone: {
             type: "phone",
@@ -42,6 +48,7 @@ export const ContactMethodsList: React.FC = () => {
                         icon={icon}
                         type={type}
                         details={details}
+                        className={className}
                     />
                 ),
             )}

@@ -6,12 +6,14 @@ interface ContactMethodProps {
     icon: string;
     details: string | React.ReactNode;
     type?: "phone" | "email" | "address";
+    className?: string;
 }
 
 export const ContactMethod: React.FC<ContactMethodProps> = ({
     icon,
     details,
     type,
+    className,
 }) => {
     const iconAlt = type || "contact";
 
@@ -40,7 +42,9 @@ export const ContactMethod: React.FC<ContactMethodProps> = ({
     };
 
     return (
-        <div className="flex items-center md:flex-row flex-col not-md:justify-center">
+        <div
+            className={`flex items-center md:flex-row flex-col not-md:justify-center ${className}`}
+        >
             <div className="w-10 h-10 flex-shrink-0 md:mr-4  flex items-center justify-center ">
                 <Image src={icon} alt={iconAlt} width={24} height={24} />
             </div>
