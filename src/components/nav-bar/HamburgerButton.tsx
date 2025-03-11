@@ -1,4 +1,4 @@
-import React, { forwardRef, useRef, useEffect } from "react";
+import React, { useEffect } from "react";
 
 interface HamburgerButtonProps {
     isOpen: boolean;
@@ -14,7 +14,7 @@ export const HamburgerButton: React.FC<HamburgerButtonProps> = ({
     buttonRef,
 }) => {
     useEffect(() => {
-        const handleClickOutside = (event: MouseEvent) => {
+        const handleClickOutside = (event: MouseEvent): void => {
             if (
                 buttonRef.current &&
                 !buttonRef.current.contains(event.target as Node)
@@ -27,7 +27,7 @@ export const HamburgerButton: React.FC<HamburgerButtonProps> = ({
         return () => {
             document.removeEventListener("mousedown", handleClickOutside);
         };
-    }, [setIsMenuOpen]);
+    }, [setIsMenuOpen, buttonRef]);
 
     return (
         <button

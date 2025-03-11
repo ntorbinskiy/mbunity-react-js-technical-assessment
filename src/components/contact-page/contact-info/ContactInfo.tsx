@@ -1,5 +1,5 @@
 import React from "react";
-import { ContactMethod } from "./ContactMethod";
+
 import { SocialIcon } from "./SocialIcon";
 import { TwitterIcon } from "./TwitterIcon";
 import { InstagramIcon } from "./InstagramIcon";
