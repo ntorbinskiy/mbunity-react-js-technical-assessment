@@ -32,9 +32,7 @@ export const EmailInput: React.FC<EmailInputProps> = ({
             if (!validateEmail(email)) {
                 newError = ErrorMessages.EMAIL_INVALID;
             }
-        } else if (touched && required && !email) {
-            newError = ErrorMessages.EMAIL_REQUIRED;
-        }
+        } 
 
         if (error !== newError) {
             setError(newError);

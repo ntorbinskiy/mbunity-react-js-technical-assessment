@@ -21,7 +21,7 @@ const ContactPage: React.FC = () => (
                     </p>
                 </div>
 
-                <div className="flex flex-col lg:flex-row md:p-3 w-full bg-white rounded-lg shadow-lg overflow-hidden min-h-170">
+                <div className="flex flex-col lg:flex-row md:p-3 w-full bg-white rounded-lg shadow-lg overflow-hidden min-h-170 relative">
                     <ContactInfo />
                     <ContactForm />
                 </div>

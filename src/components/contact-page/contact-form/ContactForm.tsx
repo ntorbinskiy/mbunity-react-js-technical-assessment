@@ -11,6 +11,7 @@ import {
     EmailError,
     ErrorMessages,
 } from "./types";
+import Image from "next/image";
 
 export const ContactForm: React.FC = () => {
     const [formData, setFormData] = useState<ContactFormState>({
@@ -38,6 +39,8 @@ export const ContactForm: React.FC = () => {
         phone: false,
         message: false,
     });
+
+    const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
 
     const handleInputChange =
         (field: keyof ContactFormState) =>
@@ -103,38 +106,19 @@ export const ContactForm: React.FC = () => {
     const handleSubmit = (e: FormEvent<HTMLFormElement>): void => {
         e.preventDefault();
 
-        setTouchedFields({
-            firstName: true,
-            lastName: true,
-            email: true,
-            phone: true,
-            message: true,
+        Object.keys(formData).forEach((key) => {
+            validateField(
+                key as keyof ContactFormState,
+                formData[key as keyof ContactFormState],
+            );
         });
 
-        const isFirstNameValid = formData.firstName.trim() !== "";
-        const isLastNameValid = formData.lastName.trim() !== "";
-        const isPhoneValidLength = formData.phone.trim().length >= 15;
-        const isPhoneNotEmpty = formData.phone.trim() !== "";
-        const isPhoneValid = isPhoneNotEmpty && isPhoneValidLength;
+        const hasErrors = Object.values(formErrors).some(
+            (error) => error !== null,
+        );
 
-        setFormErrors({
-            ...formErrors,
-            firstNameError: isFirstNameValid
-                ? null
-                : ErrorMessages.FIRST_NAME_REQUIRED,
-            lastNameError: isLastNameValid
-                ? null
-                : ErrorMessages.LAST_NAME_REQUIRED,
-            phoneError: !isPhoneNotEmpty
-                ? ErrorMessages.PHONE_REQUIRED
-                : !isPhoneValidLength
-                  ? ErrorMessages.PHONE_TOO_SHORT
-                  : null,
-            messageError: null,
-        });
-
-        if (isFirstNameValid && isLastNameValid && isPhoneValid) {
-            console.warn("Form submitted:", formData);
+        if (!hasErrors) {
+            setIsSubmitted(true);
 
             setFormData({
                 firstName: "",
@@ -151,11 +135,18 @@ export const ContactForm: React.FC = () => {
                 phone: false,
                 message: false,
             });
+
+            setFormErrors({
+                firstNameError: null,
+                lastNameError: null,
+                emailError: null,
+                phoneError: null,
+                messageError: null,
+            });
         }
     };
 
     const hasErrors = Object.values(formErrors).some((error) => error !== null);
-
     const hasEmptyRequiredFields =
         !formData.firstName.trim() ||
         !formData.lastName.trim() ||
@@ -165,7 +156,7 @@ export const ContactForm: React.FC = () => {
     const isButtonDisabled = hasErrors || hasEmptyRequiredFields;
 
     return (
-        <div className="lg:w-3/5 bg-white px-8 py-10 rounded-r-lg">
+        <div className="lg:w-3/5 bg-white px-8 pt-10 pb-40 rounded-r-lg relative">
             <form onSubmit={handleSubmit}>
                 <div className="flex flex-col gap-y-12">
                     <NameFields
@@ -228,7 +219,7 @@ export const ContactForm: React.FC = () => {
                                     className="mr-2"
                                 />
                                 <label htmlFor="technicalSupport">
-                                    General Inquiry
+                                    Technical Support
                                 </label>
                             </div>
                             <div className="flex items-center">
@@ -239,7 +230,7 @@ export const ContactForm: React.FC = () => {
                                     value="billing"
                                     className="mr-2"
                                 />
-                                <label htmlFor="billing">General Inquiry</label>
+                                <label htmlFor="billing">Billing</label>
                             </div>
                             <div className="flex items-center">
                                 <input
@@ -249,7 +240,7 @@ export const ContactForm: React.FC = () => {
                                     value="other"
                                     className="mr-2"
                                 />
-                                <label htmlFor="other">General Inquiry</label>
+                                <label htmlFor="other">Other</label>
                             </div>
                         </div>
                     </div>
@@ -276,10 +267,19 @@ export const ContactForm: React.FC = () => {
                             text="Send Message"
                             type="submit"
                             disabled={isButtonDisabled}
+                            isSubmitted={isSubmitted}
+                            submittedText="Message Sent!"
                         />
                     </div>
                 </div>
             </form>
+            <Image
+                src="/flying_kite.png"
+                alt="Flying Kite"
+                width={240}
+                height={100}
+                className="absolute bottom-[-49px] left-[100px]"
+            />
         </div>
     );
 };

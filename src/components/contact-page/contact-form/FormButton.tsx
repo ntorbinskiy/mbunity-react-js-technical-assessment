@@ -6,6 +6,8 @@ interface FormButtonProps {
     onClick?: () => void;
     className?: string;
     disabled?: boolean;
+    isSubmitted?: boolean;
+    submittedText?: string;
 }
 
 export const FormButton: React.FC<FormButtonProps> = ({
@@ -14,26 +16,28 @@ export const FormButton: React.FC<FormButtonProps> = ({
     onClick,
     className = "",
     disabled = false,
+    isSubmitted = false,
+    submittedText = "Submitted!",
 }) => {
     return (
         <button
             type={type}
             onClick={onClick}
-            disabled={disabled}
+            disabled={disabled || isSubmitted}
             className={`
-                bg-black 
-                text-white 
                 py-4 
                 px-8 
                 rounded-md 
                 font-medium 
                 transition-colors 
-                ${!disabled ? "hover:bg-gray-800" : ""} 
+                ${!disabled && !isSubmitted ? "hover:bg-gray-800" : ""} 
                 ${className} 
-                ${disabled ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}
+                ${disabled || isSubmitted ? "opacity-50 cursor-not-allowed" : "cursor-pointer"}
+                ${isSubmitted ? "bg-green-500 text-white" : "bg-black text-white"}
+                not-sm:w-full
             `}
         >
-            {text}
+            {isSubmitted ? submittedText : text}
         </button>
     );
 };
