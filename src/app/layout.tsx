@@ -3,6 +3,7 @@ import "./globals.css";
 import { inter, poppins, roboto } from "./fonts";
 import React from "react";
 import { NavBar } from "@/components/nav-bar/NavBar";
+import { Footer } from "@/components/footer/Footer";
 
 export const metadata: Metadata = {
     title: "Contact Us | Company Name",
@@ -24,6 +25,7 @@ export default function RootLayout({
             <body className="font-poppins bg-gray-50">
                 <NavBar />
                 {children}
+                <Footer />
             </body>
         </html>
     );

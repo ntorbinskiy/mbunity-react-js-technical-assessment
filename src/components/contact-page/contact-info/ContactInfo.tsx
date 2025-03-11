@@ -4,6 +4,7 @@ import { SocialIcon } from "./SocialIcon";
 import { TwitterIcon } from "./TwitterIcon";
 import { InstagramIcon } from "./InstagramIcon";
 import { DiscordIcon } from "./DiscordIcon";
+import { ContactMethodsList } from "./ContactMethodsList";
 
 export const ContactInfo: React.FC = () => (
     <div className="w-full lg:w-2/5 bg-black text-white p-10 rounded-t-lg lg:rounded-l-lg flex flex-col justify-between not-md:items-center not-md:text-center relative overflow-hidden">
@@ -17,26 +18,7 @@ export const ContactInfo: React.FC = () => (
         </div>
 
         <div className="flex flex-col gap-y-10 my-8 lg:my-0">
-            <ContactMethod
-                icon="/phone.svg"
-                type="phone"
-                details="+1 012 3456 789"
-            />
-            <ContactMethod
-                icon="/email.svg"
-                type="email"
-                details="demo@gmail.com"
-            />
-            <ContactMethod
-                icon="/location.svg"
-                type="address"
-                details={
-                    <>
-                        132 Dartmouth Street Boston, <br /> Massachusetts 02156
-                        United States
-                    </>
-                }
-            />
+            <ContactMethodsList />
         </div>
 
         <div className="flex gap-x-4 relative">
