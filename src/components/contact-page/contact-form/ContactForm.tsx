@@ -12,8 +12,17 @@ import {
     ErrorMessages,
 } from "./types";
 import Image from "next/image";
+import { StyledRadioInput } from "./StyledRadioInput";
 
 export const ContactForm: React.FC = () => {
+    const [selectedSubject, setSelectedSubject] =
+        useState<string>("generalInquiry");
+
+    const handleSubjectChange = (
+        e: React.ChangeEvent<HTMLInputElement>,
+    ): void => {
+        setSelectedSubject(e.target.value);
+    };
     const [formData, setFormData] = useState<ContactFormState>({
         firstName: "",
         lastName: "",
@@ -197,51 +206,38 @@ export const ContactForm: React.FC = () => {
                             Select Subject?
                         </label>
                         <div className="flex flex-wrap gap-4 mt-2">
-                            <div className="flex items-center">
-                                <input
-                                    type="radio"
-                                    id="generalInquiry"
-                                    name="subject"
-                                    value="generalInquiry"
-                                    className="mr-2"
-                                    defaultChecked
-                                />
-                                <label htmlFor="generalInquiry">
-                                    General Inquiry
-                                </label>
-                            </div>
-                            <div className="flex items-center">
-                                <input
-                                    type="radio"
-                                    id="technicalSupport"
-                                    name="subject"
-                                    value="technicalSupport"
-                                    className="mr-2"
-                                />
-                                <label htmlFor="technicalSupport">
-                                    Technical Support
-                                </label>
-                            </div>
-                            <div className="flex items-center">
-                                <input
-                                    type="radio"
-                                    id="billing"
-                                    name="subject"
-                                    value="billing"
-                                    className="mr-2"
-                                />
-                                <label htmlFor="billing">Billing</label>
-                            </div>
-                            <div className="flex items-center">
-                                <input
-                                    type="radio"
-                                    id="other"
-                                    name="subject"
-                                    value="other"
-                                    className="mr-2"
-                                />
-                                <label htmlFor="other">Other</label>
-                            </div>
+                            <StyledRadioInput
+                                id="generalInquiry"
+                                name="subject"
+                                value="generalInquiry"
+                                label="General Inquiry"
+                                checked={selectedSubject === "generalInquiry"}
+                                onChange={handleSubjectChange}
+                            />
+                            <StyledRadioInput
+                                id="technicalSupport"
+                                name="subject"
+                                value="technicalSupport"
+                                label="General Inquiry"
+                                checked={selectedSubject === "technicalSupport"}
+                                onChange={handleSubjectChange}
+                            />
+                            <StyledRadioInput
+                                id="billing"
+                                name="subject"
+                                value="billing"
+                                label="General Inquiry"
+                                checked={selectedSubject === "billing"}
+                                onChange={handleSubjectChange}
+                            />
+                            <StyledRadioInput
+                                id="other"
+                                name="subject"
+                                value="other"
+                                label="General Inquiry"
+                                checked={selectedSubject === "other"}
+                                onChange={handleSubjectChange}
+                            />
                         </div>
                     </div>
 
